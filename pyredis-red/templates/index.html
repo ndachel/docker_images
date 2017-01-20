@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{ deployment_color }} Deploy</title>
+<style>
+    body {
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+        background-color: #DDDDDD; 
+        text-align: left;    
+        padding: 5px;
+    }
+    .text {
+        padding: 5px;
+        text-align: left;
+        float: left;
+    }
+    .deploy {
+        background-color: {{ line_back }};
+        color: white;
+        padding: 5px;
+        text-align: left;
+        float: left;
+    }
+    p {
+        clear: both;
+    }
+
+</style>
+</head>
+<body>
+<div class="text"><h1>Python/Redis Demo App</h1></div>
+<p>
+<div class="text">Container ID: {{ hostname }} </div>
+<p>
+<div class="text">Deployment Type:</div><div class="deploy">{{ deployment_color }}</div>
+<p>
+<div class="text">Redis: I have been seen {{ count }} times</div>
+</body>
