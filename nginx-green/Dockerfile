@@ -6,7 +6,10 @@ ENV https_proxy=http://web-proxy.corp.hpecorp.net:8080
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 9D6D8F6BC857C906
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7638D0442B90D010
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7638D0442B90D010
-RUN apt-get update 
+RUN apt-get update -y --fix-missing
+RUN apt-get install -y curl
+RUN apt-get install -y iputils-ping
+RUN apt-get install -y net-tools 
 RUN sh -c '/bin/echo -e "Y" | apt-get install -y nginx'
 RUN useradd nginx
 
