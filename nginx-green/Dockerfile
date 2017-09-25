@@ -24,6 +24,9 @@ ADD ./files/order.php /usr/share/nginx/html/order.php
 ADD ./files/health.html /usr/share/nginx/html/health.html
 ADD ./files/info.php /usr/share/nginx/html/info.php
 
+# forward request and error logs to docker log collector
+RUN ln -sf /dev/stdout /var/log/nginx/access.log && ln -sf /dev/stderr /var/log/nginx/error.log
+
 EXPOSE 80
 
 CMD sed -e "s/CONTAINERID/'$(hostname)'/g" /usr/share/nginx/html/index.html > /usr/share/nginx/html/index.html.tmp && mv /usr/share/nginx/html/index.html.tmp /usr/share/nginx/html/index.html && nginx -g "daemon off;"
